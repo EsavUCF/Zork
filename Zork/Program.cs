@@ -8,23 +8,51 @@ namespace Zork
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Zork!");
-            //inputstring is a variable
-            //ToUpper is a METHOD
-            string inputString = Console.ReadLine().Trim(); //Added trim
-            inputString = inputString.ToUpper(); //This converts lowercase text commands to upper vise versa. 
-            if (inputString == "QUIT")
-            {
-                Console.WriteLine("Thank you for playing!");
-            }
-            else if (inputString == "LOOK")
-            {
-                Console.WriteLine("This is an open field west of a white house, with a boarded front door. /nA rubber mat saying 'Welcome to Zork!' lies by the door.");
-            }
-            else
-            {
-                Console.WriteLine("Unrecognized command");
-            }
+
+            string inputString = Console.ReadLine().Trim();
+            Commands command = ToCommand(inputString.Trim().ToUpper());
+            Console.WriteLine(command);
+
+      
         }
+        private static Commands ToCommand(string commandString)
+        {
+            Commands command;
+
+        if (commandString == "QUIT" )
+            {
+                command = Commands.QUIT;
+            }
+          else if (commandString == "LOOK")
+            {
+                command = Commands.LOOK;
+            }
+        else if (commandString == "NORTH")
+            {
+                command = Commands.NORTH;
+            }
+        else if (commandString == "SOUTH")
+            {
+                command = Commands.SOUTH;
+            }
+            else if (commandString == "EAST")
+            {
+                command = Commands.EAST;
+            }
+        else if (commandString == "WEST")
+            {
+                command = Commands.WEST;
+            }
+        else
+            {
+                command = Commands.UNKNOWN;
+            }
+            return command;
+
+        }
+
+
+
     }
 
 }
