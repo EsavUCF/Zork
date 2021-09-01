@@ -9,10 +9,28 @@ namespace Zork
         {
             Console.WriteLine("Welcome to Zork!");
 
+           while(ToCommand != Commands.QUIT) //Doublecheck at home.
+
+
             string inputString = Console.ReadLine().Trim();
             Commands command = ToCommand(inputString.Trim().ToUpper());
-            Console.WriteLine(command);
+           switch (command)
+            {
+                case Commands.QUIT:
+                outputString = "Thanks for playing!"
+                break;
 
+                case Commands.LOOK:
+                outputString = "This is an open field west of a white house, with a boarded front door. /nA Rubber mat saying "Welcome to Zork!"
+                break;
+
+                case Commands.NORTH:
+                case Commands.SOUTH:
+                case Commands.EAST:
+                case Commands.WEST:
+                    outputString = $"You moved {command.ToString()}";
+                    break;
+            }
 
         }
         private static Commands ToCommand(string commandString)
