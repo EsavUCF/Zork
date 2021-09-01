@@ -1,8 +1,8 @@
 ﻿namespace Zork
 
 {
-    enum Commands
-    {
+    enum Commands //list of identifiers
+    {//values
         QUIT,
         LOOK,
         NORTH,
