@@ -9,28 +9,68 @@ namespace Zork
         {
             Console.WriteLine("Welcome to Zork!");
 
-           while(ToCommand != Commands.QUIT) //Doublecheck at home.
 
+            Commands command = Commands.UNKNOWN;
 
-            string inputString = Console.ReadLine().Trim();
-            Commands command = ToCommand(inputString.Trim().ToUpper());
-           switch (command)
+            string outputString=""; 
+           
+            while (command != Commands.QUIT)
+                
+                 
+
             {
-                case Commands.QUIT:
-                outputString = "Thanks for playing!"
-                break;
+                Console.Write(">");
+                command = ToCommand(Console.ReadLine().Trim());
 
-                case Commands.LOOK:
-                outputString = "This is an open field west of a white house, with a boarded front door. /nA Rubber mat saying "Welcome to Zork!"
-                break;
 
-                case Commands.NORTH:
-                case Commands.SOUTH:
-                case Commands.EAST:
-                case Commands.WEST:
-                    outputString = $"You moved {command.ToString()}";
+                
+                switch (command) //This segment takes your commands from commands.cs and puts a reponse which is dictated below.
+
+                   
+                
+                
+                
+                
+                {
+
+                    case Commands.LOOK:
+                    outputString = "This is an open field west of a white house, with a boarded front door. A Rubber mat saying 'Welcome to Zork! lies by the door.";
                     break;
+
+                    case Commands.NORTH:
+                        outputString = "You moved NORTH";
+                        break;
+
+                    case Commands.EAST:
+                        outputString = "You moved EAST";
+                        break;
+
+                    case Commands.SOUTH:
+                        outputString = "You moved SOUTH";
+                        break;
+
+                        case Commands.WEST:
+                        outputString = "You moved WEST";
+                        break;
+
+                    case Commands.UNKNOWN:
+                        outputString = "Unknown command";
+                        break;
+
+                    case Commands.QUIT:
+                        outputString = "Thank you for playing!";
+                        break;
+                        
+
+
+
+                }
+
+
+            Console.WriteLine(outputString);
             }
+
+            
 
         }
         private static Commands ToCommand(string commandString)
