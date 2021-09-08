@@ -10,17 +10,22 @@ namespace Zork
             Console.WriteLine("Welcome to Zork!");
 
 
-            Commands command = Commands.UNKNOWN;
+            //Commands command = Commands.UNKNOWN;
 
             string outputString=""; 
            
-            while (command != Commands.QUIT)
+            while (true)
                 
                  
 
             {
-                Console.Write(">");
-                command = ToCommand(Console.ReadLine().Trim());
+
+                Console.Write($"{Rooms[LocationColumn]} \n");  //\N make a new line rather than a < 
+                Commands command = ToCommand(Console.ReadLine().Trim());
+                if (command == Commands.QUIT)//you have loops in loops. 
+                {
+                    break;
+                }
 
 
                 
@@ -62,8 +67,8 @@ namespace Zork
 
             Console.WriteLine(outputString);
             }
+            Console.WriteLine("Finished");
 
-            
 
         }
         private static Commands ToCommand(string commandString)
@@ -82,6 +87,9 @@ namespace Zork
             // }
             return Enum.TryParse(commandString, true, out Commands result) ? result : Commands.UNKNOWN;            // <-- This is an Expression Bodied Method  //
         }
+        private static string[] Rooms = {"Forest","West of House ","Behind House","Clearing","Canyon View" };                 //initiallizer list  (Makes an array of 5 rooms)         ZORK 2.1
+        private static int LocationColumn = 1; //ints are used to access the array. Aka forest would be assigned to a int
+
     }
 }
 
