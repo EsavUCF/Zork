@@ -9,7 +9,7 @@ namespace Zork
         {
             get
             {
-                return Rooms[LocationColumn];          //Properties are known as attributes. It describes the class. For example a pizza class would have the toppings in it, size etc.
+                return Rooms[LocationRow,LocationColumn];          //Properties are known as attributes. It describes the class. For example a pizza class would have the toppings in it, size etc.
                  
             }
 
@@ -97,8 +97,18 @@ namespace Zork
         }
         
         
-        private static string[] Rooms = {"Forest","West of House ","Behind House","Clearing","Canyon View" };                 //initiallizer list  (Makes an array of 5 rooms)         ZORK 2.1
+        private static string[,] Rooms =
+        {
+            {"Dense Woods", "North of House", "Clearing" },
+            {"Forest","West of House","Behind House" },
+            {"Rocky Trail", "South of House","Canyon View"},
+            
+          
+        
+        
+        };                 //initiallizer list  (Makes an array of 5 rooms)         ZORK 2.1
         private static int LocationColumn = 1; //ints are used to access the array. Aka forest would be assigned to a int     Rooms and Locationcolumn are known as fields
+        private static int LocationRow = 1;
         private static bool Move(Commands command)
         {
             bool didMove = false;
@@ -110,7 +120,7 @@ namespace Zork
                    
                     break;
 
-                case Commands.EAST when LocationColumn < Rooms.Length - 1:
+                case Commands.EAST when LocationColumn < Rooms.GetLength(1) - 1:
                     LocationColumn++;
                     didMove = true;
                     break;
