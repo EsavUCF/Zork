@@ -1,10 +1,12 @@
 ﻿//Note, the notes in my pushes are for me, as I'm still learning. If I should not have these. Please let me know ASAP. 
 using System;
+using System.Collections.Generic;
 
 namespace Zork
 {
     class Program
     {
+
         private static string Location //private static string Location => Rooms[LocationColumn];
         {
             get
@@ -37,7 +39,9 @@ namespace Zork
                     break;
                 }
 
-
+               // Console.WriteLine(CurrentRoom);
+               // Console.Write(">");
+               // command = ToCommand(Console.ReadLine().Trim());
                 
                 switch (command) //This segment takes your commands from commands.cs and puts a reponse which is dictated below.
 
@@ -99,14 +103,20 @@ namespace Zork
         
         private static string[,] Rooms =
         {
-            {"Dense Woods", "North of House", "Clearing" },
-            {"Forest","West of House","Behind House" },
             {"Rocky Trail", "South of House","Canyon View"},
-            
-          
-        
-        
+            {"Forest","West of House","Behind House" },       
+            {"Dense Woods", "North of House", "Clearing" }
+
         };                 //initiallizer list  (Makes an array of 5 rooms)         ZORK 2.1
+
+      //  private static readonly List<Commands> Directions = new List<Commands>
+      //  { Commands.NORTH,
+       //   Commands.SOUTH,
+        //  Commands.EAST,
+        //  Commands.WEST
+        //};
+        //private static (int Row, int Column) Location = (1, 1);
+
         private static int LocationColumn = 1; //ints are used to access the array. Aka forest would be assigned to a int     Rooms and Locationcolumn are known as fields
         private static int LocationRow = 1;
         private static bool Move(Commands command)
@@ -115,10 +125,17 @@ namespace Zork
 
             switch (command)
             {
-                case Commands.NORTH:
-                case Commands.SOUTH:
-                   
+                case Commands.NORTH when LocationRow < Rooms.GetLength(0) - 1:
+                    LocationRow++;
+                    didMove = true;
                     break;
+
+                case Commands.SOUTH when LocationRow > 0:
+                    LocationRow--;
+                    didMove = true;  //whens can only be in switches.
+                    break;
+
+                    
 
                 case Commands.EAST when LocationColumn < Rooms.GetLength(1) - 1:
                     LocationColumn++;
@@ -136,6 +153,6 @@ namespace Zork
             return didMove;
         }
     }
-}
+}//
 
 
