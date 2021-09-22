@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 
@@ -32,12 +33,10 @@ namespace Zork
                     Console.WriteLine(CurrentRoom.Description); //3.2
                     previousRoom = CurrentRoom; //3.2
                 }                               //3.2 stuff Double Check if this is a valid spot   (ENDS) 3.2
-                Console.Write(">"); //between here
+               
+                
+                Console.Write(">"); 
                 command = ToCommand(Console.ReadLine().Trim());
-
-                 
-
-
                 switch (command)
                 {
                     case Commands.QUIT:
@@ -144,9 +143,9 @@ namespace Zork
         private static void InitializeRoomDescriptions()   //3.1 stuff
         {
             var roomMap = new Dictionary<string, Room>(); //3.2 
-            foreach (Room room in Rooms)                  
+            foreach (Room room in Rooms)        //populates dictionary           
             {                                             
-                roomMap[room.Name] = room;               
+                roomMap[room.Name] = room;    //these produce the same results. roomMap.Add(room.Name, room);           
             }                                           //3.2 
 
 
