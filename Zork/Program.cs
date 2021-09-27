@@ -7,7 +7,7 @@ namespace Zork
 {
 
     internal class Program
-    { 
+    {
 
         public static Room CurrentRoom
         {
@@ -22,20 +22,20 @@ namespace Zork
         {
             Console.WriteLine("Welcome to Zork!");
             InitializeRoomDescriptions(); //This calls for the descriptions which are below. 
-            
+
             Room previousRoom = null; //Refer to 3.2 page and notes on Null.
             Commands command = Commands.UNKNOWN;
-            while (command !=Commands.QUIT)
+            while (command != Commands.QUIT)
             {
                 Console.WriteLine(CurrentRoom);//between here
                 if (previousRoom != CurrentRoom) //3.2
-                { 
-                    Console.WriteLine(CurrentRoom.Description); 
-                    previousRoom = CurrentRoom; 
-                }                               
-               
-                
-                Console.Write(">"); 
+                {
+                    Console.WriteLine(CurrentRoom.Description);
+                    previousRoom = CurrentRoom;
+                }
+
+
+                Console.Write(">");
                 command = ToCommand(Console.ReadLine().Trim());
                 switch (command)
                 {
@@ -51,7 +51,7 @@ namespace Zork
                     case Commands.NORTH:
                     case Commands.SOUTH:
                     case Commands.EAST:
-                    case Commands.WEST: 
+                    case Commands.WEST:
                         if (Move(command) == false)
                         {
                             Console.WriteLine("The way is shut!");
@@ -65,7 +65,7 @@ namespace Zork
 
 
                 }
-                
+
 
             }
 
@@ -76,7 +76,7 @@ namespace Zork
         private static bool Move(Commands command)
         {
             Assert.IsTrue(IsDirection(command), "invalid direction");
-            
+
             bool isValidMove = true;
             switch (command)
             {
@@ -118,7 +118,8 @@ namespace Zork
 
         private static bool IsDirection(Commands command) => Directions.Contains(command);
 
-        private static readonly Room[,] Rooms =
+        
+        private static readonly Room[,] Rooms =                //Move 4.1 declaration here? 
         {
             {new Room("Rocky Trail"), new Room ("South of House"), new Room ("Canyon View") },        //Refer to 3.1 page
             {new Room ("Forest"), new Room ("West of House"), new Room ("Behind House") },
@@ -134,19 +135,20 @@ namespace Zork
         };
 
         private static (int Row, int Column) Location = (1, 1);
+        //private static readonly Dictionary<string, Room> oomMap; //4.1 Moved here. 
 
 
 
 
 
-
-        private static void InitializeRoomDescriptions()   //Refer to 3.1 
+        private static void InitializeRoomDescriptions()//(string roomsFilename)   4.1
         {
-            var roomMap = new Dictionary<string, Room>(); //3.2 
-            foreach (Room room in Rooms)        //populates dictionary           
-            {                                             
-                roomMap[room.Name] = room;    //these produce the same results. roomMap.Add(room.Name, room);           
-            }                                           
+            //RoomMap = new Dictionary<string, Room>(); 4.1 Replace with below
+            var roomMap = new Dictionary<string, Room>();
+            foreach (Room room in Rooms)
+            {
+                roomMap[room.Name] = room; //Change "roomMap" with "RoomMap"
+            }
 
 
 
@@ -164,14 +166,40 @@ namespace Zork
             roomMap["Clearing"].Description = "You are in a clearing with a forest surrounding you on the west and south.";                        //Clearing
 
         }
-
-
-       
-
     }
- 
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// private static void InitializeRoomDescriptions(string roomsFilename)                       ** REPLACE  InitializeRoomDescriptions method**                                                                                  
+//{
+//  const string fieldDelimiter = "##";
+//  const int expectedFieldCount = 2;
+//
+// string[] lines = File.ReadAllLines(roomsFilename);
+// foreach (string line in lines)
+// {
+//  string[] fields = line.Split(fieldDelimiter);
+//  if (fields.Length != expectedFieldCount)
+//{
+// throw new InvalidDataException("Invalid record.");
+//}
+// string name = fields[(int)Fields.Name];
+// string description = fields[(int)Fields.Description];
+//
+//RoomMap[name].Description = description;
+// }
+//}
+
+
+
+
