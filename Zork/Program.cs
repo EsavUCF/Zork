@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-
+using System.IO;
 
 namespace Zork
 {
@@ -18,10 +18,26 @@ namespace Zork
 
         }
 
+        
+
+        private enum CommandLineArguments
+        {
+            RoomsFilename = 0
+        }
+
+        private enum Fields
+        {
+            Name = 0,
+            Description
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Zork!");
-            InitializeRoomDescriptions(); //This calls for the descriptions which are below. 
+            const string defaultRoomsFilename = "Rooms.txt";
+           
+            string roomsFilename = (args.Length > 0 ? args[(int)CommandLineArguments.RoomsFilename] : defaultRoomsFilename);
+            InitializeRoomDescriptions(defaultRoomsFilename);
 
             Room previousRoom = null; //Refer to 3.2 page and notes on Null.
             Commands command = Commands.UNKNOWN;
@@ -33,6 +49,7 @@ namespace Zork
                     Console.WriteLine(CurrentRoom.Description);
                     previousRoom = CurrentRoom;
                 }
+
 
 
                 Console.Write(">");
@@ -65,7 +82,7 @@ namespace Zork
 
 
                 }
-
+                //
 
             }
 
@@ -99,14 +116,6 @@ namespace Zork
                 default:
                     isValidMove = false;
                     break;
-
-
-
-
-
-
-
-
             }
 
             return isValidMove;
@@ -118,8 +127,8 @@ namespace Zork
 
         private static bool IsDirection(Commands command) => Directions.Contains(command);
 
-        
-        private static readonly Room[,] Rooms =                //Move 4.1 declaration here? 
+
+        private static readonly Room[,] Rooms =                
         {
             {new Room("Rocky Trail"), new Room ("South of House"), new Room ("Canyon View") },        //Refer to 3.1 page
             {new Room ("Forest"), new Room ("West of House"), new Room ("Behind House") },
@@ -135,71 +144,41 @@ namespace Zork
         };
 
         private static (int Row, int Column) Location = (1, 1);
-        //private static readonly Dictionary<string, Room> oomMap; //4.1 Moved here. 
+        private static readonly Dictionary<string, Room> RoomMap; //4.1 Moved here. 
 
 
-
-
-
-        private static void InitializeRoomDescriptions()//(string roomsFilename)   4.1
+        static Program()
         {
-            //RoomMap = new Dictionary<string, Room>(); 4.1 Replace with below
-            var roomMap = new Dictionary<string, Room>();
+            RoomMap = new Dictionary<string, Room>();
             foreach (Room room in Rooms)
             {
-                roomMap[room.Name] = room; //Change "roomMap" with "RoomMap"
+                RoomMap[room.Name] = room;
+            }
+        }
+
+
+        private static void InitializeRoomDescriptions(string roomsFilename)   //4.1
+        {
+            const string fieldDelimiter = "##";
+            const int expectedFieldCount = 2;
+
+            string[] lines = File.ReadAllLines(roomsFilename);
+            foreach (string line in lines)
+            {
+                string[] fields = line.Split(fieldDelimiter);
+                if (fields.Length != expectedFieldCount)
+                {
+                    throw new InvalidDataException("Invalid Record");
+                }
+
+                string name = fields[(int)Fields.Name];
+                string description = fields[(int)Fields.Description];
+
+                RoomMap[name].Description = description;
+
             }
 
-
-
-
-            roomMap["Rocky Trail"].Description = "You are on a rock-strewn trail."; //Rocky Trail  (I know I don't need the comments here I just like them to help remind the changes we did, eg using roommap)
-            roomMap["South of House"].Description = "You are facing the south side of a white house. There is no door here, and all the windows are barred. "; //South of House
-            roomMap["Canyon View"].Description = "You are at the top of the Great Canyon on its south wall."; //Canyon View
-
-            roomMap["Forest"].Description = "This is a forest, with trees in all directions around you."; //Forest
-            roomMap["West of House"].Description = "This is a open field west of a white house, with a boarded front door."; //west of house
-            roomMap["Behind House"].Description = "You are behind the white house. In one corner of the house there is a small window that is slightly ajar"; //behind house
-
-            roomMap["Dense Woods"].Description = "This is a dimly lit forest, with large trees all around. To the east there appears to be sunlight."; //Dense Woods
-            roomMap["North of House"].Description = "You are facing the north side of a white house. There is no door here and all windows are barred."; //North of house
-            roomMap["Clearing"].Description = "You are in a clearing with a forest surrounding you on the west and south.";                        //Clearing
 
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-// private static void InitializeRoomDescriptions(string roomsFilename)                       ** REPLACE  InitializeRoomDescriptions method**                                                                                  
-//{
-//  const string fieldDelimiter = "##";
-//  const int expectedFieldCount = 2;
-//
-// string[] lines = File.ReadAllLines(roomsFilename);
-// foreach (string line in lines)
-// {
-//  string[] fields = line.Split(fieldDelimiter);
-//  if (fields.Length != expectedFieldCount)
-//{
-// throw new InvalidDataException("Invalid record.");
-//}
-// string name = fields[(int)Fields.Name];
-// string description = fields[(int)Fields.Description];
-//
-//RoomMap[name].Description = description;
-// }
-//}
-
-
-
-
