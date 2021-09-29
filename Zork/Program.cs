@@ -130,7 +130,7 @@ namespace Zork
         private static bool IsDirection(Commands command) => Directions.Contains(command);
 
 
-        private static readonly Room[,] Rooms =    //4.2      private static Room[,] Rooms;       
+        private static  Room[,] Rooms =    //4.2      private static Room[,] Rooms;       
         {
             {new Room("Rocky Trail"), new Room ("South of House"), new Room ("Canyon View") },        //Refer to 3.1 page
             {new Room ("Forest"), new Room ("West of House"), new Room ("Behind House") },
@@ -149,20 +149,24 @@ namespace Zork
         private static readonly Dictionary<string, Room> RoomMap; //4.1 Moved here. 
 
 
+
         static Program()
         {
             RoomMap = new Dictionary<string, Room>();
             foreach (Room room in Rooms)
             {
+                //RoomMap.Add(room.Name, room);
                 RoomMap[room.Name] = room;
             }
         }
 
 
+
         private static void InitializeRooms(string roomsFilename) =>
         Rooms = JsonConvert.DeserializeObject<Room[,]>(File.ReadAllText(roomsFilename));
-       
-        
+
+           // string roomsJsonString = File.ReadAllText(roomDescriptionsFilename)
+           // room[] rooms = JsonConvert.DeserializeObject<Room[]>(roomsJsonString);   
          
             
             //const string fieldDelimiter = "##";
@@ -183,6 +187,9 @@ namespace Zork
           //    RoomMap[name].Description = description;
           //
           //}
+
+
+        
 
 
         }
