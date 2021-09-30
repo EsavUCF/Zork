@@ -1,9 +1,8 @@
 ﻿using System;
-using Newtonsoft.Json;
 using System.Linq;
 using System.Collections.Generic;
 using System.IO;
-
+using Newtonsoft.Json;
 
 namespace Zork
 {
@@ -20,7 +19,7 @@ namespace Zork
 
         }
 
-        
+
 
         private enum CommandLineArguments
         {
@@ -36,10 +35,10 @@ namespace Zork
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Zork!");
-            const string defaultRoomsFilename = "Rooms.json"; //originally rooms.txt
-           
+            const string defaultRoomsFilename = "Rooms.json";
+
             string roomsFilename = (args.Length > 0 ? args[(int)CommandLineArguments.RoomsFilename] : defaultRoomsFilename);
-            InitializeRooms(defaultRoomsFilename);
+            InitializeRoomDescriptions(defaultRoomsFilename);
 
             Room previousRoom = null; //Refer to 3.2 page and notes on Null.
             Commands command = Commands.UNKNOWN;
@@ -130,7 +129,7 @@ namespace Zork
         private static bool IsDirection(Commands command) => Directions.Contains(command);
 
 
-        private static readonly Room[,] Rooms =    //4.2      private static Room[,] Rooms;       
+        private static readonly Room[,] Rooms =
         {
             {new Room("Rocky Trail"), new Room ("South of House"), new Room ("Canyon View") },        //Refer to 3.1 page
             {new Room ("Forest"), new Room ("West of House"), new Room ("Behind House") },
@@ -159,32 +158,26 @@ namespace Zork
         }
 
 
-        private static void InitializeRooms(string roomsFilename) =>
-        Rooms = JsonConvert.DeserializeObject<Room[,]>(File.ReadAllText(roomsFilename));
-       
-        
-         
-            
-            //const string fieldDelimiter = "##";
-          //const int expectedFieldCount = 2;
-          //
-          //string[] lines = File.ReadAllLines(roomsFilename);
-          //foreach (string line in lines)
-          //{
-          //    string[] fields = line.Split(fieldDelimiter);
-          //    if (fields.Length != expectedFieldCount)
-          //    {
-          //        throw new InvalidDataException("Invalid Record");
-          //    }
-          //
-          //    string name = fields[(int)Fields.Name];
-          //    string description = fields[(int)Fields.Description];
-          //
-          //    RoomMap[name].Description = description;
-          //
-          //}
+        private static void InitializeRoomDescriptions(string roomsFilename)   //4.1
+        { 
+            var roomMap = new Dictionary<string, Room>();
+            foreach (Room room in Rooms)
+            {
+                roomMap.Add(room.Name, room);
+                roomMap[room.Name] = room;
+
+
+
+            }
+
+            string roomsJsonString = File.ReadAllText(roomsFilename);
+            Room[] rooms = JsonConvert.DeserializeObject<Room[]>(roomsJsonString);
+            foreach (Room room in rooms)
+            {
+                roomMap[room.Name].Description = room.Description;
+            }
 
 
         }
     }
-
+}
