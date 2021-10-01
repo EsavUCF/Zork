@@ -129,13 +129,8 @@ namespace Zork
         private static bool IsDirection(Commands command) => Directions.Contains(command);
 
 
-        private static readonly Room[,] Rooms =
-        {
-            {new Room("Rocky Trail"), new Room ("South of House"), new Room ("Canyon View") },        //Refer to 3.1 page
-            {new Room ("Forest"), new Room ("West of House"), new Room ("Behind House") },
-            {new Room("Dense Woods"), new Room ("North of House"), new Room ("Clearing") }
-        };
-
+        private static  Room[,] Rooms;
+      
 
         private static readonly List<Commands> Directions = new List<Commands>
         {   Commands.NORTH,
@@ -145,39 +140,14 @@ namespace Zork
         };
 
         private static (int Row, int Column) Location = (1, 1);
-        private static readonly Dictionary<string, Room> RoomMap; //4.1 Moved here. 
+        //private static readonly Dictionary<string, Room> RoomMap; //4.1 Moved here. 
 
 
-        static Program()
-        {
-            RoomMap = new Dictionary<string, Room>();
-            foreach (Room room in Rooms)
-            {
-                RoomMap[room.Name] = room;
-            }
-        }
+      
 
 
-        private static void InitializeRoomDescriptions(string roomsFilename)   //4.1
-        { 
-            var roomMap = new Dictionary<string, Room>();
-            foreach (Room room in Rooms)
-            {
-                roomMap.Add(room.Name, room);
-                roomMap[room.Name] = room;
-
-
-
-            }
-
-            string roomsJsonString = File.ReadAllText(roomsFilename);
-            Room[] rooms = JsonConvert.DeserializeObject<Room[]>(roomsJsonString);
-            foreach (Room room in rooms)
-            {
-                roomMap[room.Name].Description = room.Description;
-            }
-
-
-        }
+        private static void InitializeRoomDescriptions(string roomsFilename) =>
+        Rooms = JsonConvert.DeserializeObject<Room[,]>(File.ReadAllText(roomsFilename));
+        
     }
 }

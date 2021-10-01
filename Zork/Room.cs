@@ -13,7 +13,7 @@
 
         {
             Name = name;
-            Description = Description;
+            Description = description;
 
         }
 
