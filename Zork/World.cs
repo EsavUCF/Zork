@@ -27,7 +27,6 @@ namespace Zork
             }
 
 
-
         }
         [JsonProperty]
         private string StartingLocation { get; set; }

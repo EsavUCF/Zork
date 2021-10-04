@@ -43,11 +43,6 @@ namespace Zork
                 Location = destination;
             }
             return isValidMove;
-
         }
-
-        
-
     }
-
 }

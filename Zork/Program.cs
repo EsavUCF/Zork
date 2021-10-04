@@ -14,7 +14,6 @@ namespace Zork
             Console.WriteLine("Welcome to Zork!");
             game.Run();
             Console.WriteLine("Thank you for playing!");
-
         }
 
         private enum CommandLineArguments
