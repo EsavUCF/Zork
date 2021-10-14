@@ -1,0 +1,10 @@
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Common\bin\Debug\netcoreapp3.1\Zork.Common.deps.json
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Common\bin\Debug\netcoreapp3.1\Zork.Common.dll
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Common\bin\Debug\netcoreapp3.1\Zork.Common.pdb
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Common\obj\Debug\netcoreapp3.1\Zork.Common.csproj.AssemblyReference.cache
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Common\obj\Debug\netcoreapp3.1\Zork.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Common\obj\Debug\netcoreapp3.1\Zork.Common.AssemblyInfoInputs.cache
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Common\obj\Debug\netcoreapp3.1\Zork.Common.AssemblyInfo.cs
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Common\obj\Debug\netcoreapp3.1\Zork.Common.csproj.CoreCompileInputs.cache
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Common\obj\Debug\netcoreapp3.1\Zork.Common.dll
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Common\obj\Debug\netcoreapp3.1\Zork.Common.pdb
