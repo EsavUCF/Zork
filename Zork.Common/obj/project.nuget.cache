@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sZmewJGD22rob7w5q7lCK/5GaoNgu45FeuNDLmcBR/yMTe2Ac/gcdfr7jHVBIXXBQZPKZZov6aDEa6UMI1eDMQ==",
+  "dgSpecHash": "pauuoiFHmTYl1m9jj9Gk7Si3CSoJjCaXnAMGLbEdvN43KK8lzetqUA+neOkRlXqnua5288x/fCLvtzP9cQR4Dg==",
   "success": true,
   "projectFilePath": "C:\\Users\\cire3\\Documents\\GitHub\\Zork\\Zork.Common\\Zork.Common.csproj",
   "expectedPackageFiles": [
@@ -10,9 +10,10 @@
     "C:\\Users\\cire3\\.nuget\\packages\\microsoft.codeanalysis.csharp.scripting\\3.11.0\\microsoft.codeanalysis.csharp.scripting.3.11.0.nupkg.sha512",
     "C:\\Users\\cire3\\.nuget\\packages\\microsoft.codeanalysis.scripting.common\\3.11.0\\microsoft.codeanalysis.scripting.common.3.11.0.nupkg.sha512",
     "C:\\Users\\cire3\\.nuget\\packages\\microsoft.csharp\\4.3.0\\microsoft.csharp.4.3.0.nupkg.sha512",
-    "C:\\Users\\cire3\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
+    "C:\\Users\\cire3\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\cire3\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\cire3\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\cire3\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\cire3\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\cire3\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\cire3\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
@@ -22,6 +23,7 @@
     "C:\\Users\\cire3\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\cire3\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\cire3\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\cire3\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
     "C:\\Users\\cire3\\.nuget\\packages\\system.objectmodel\\4.3.0\\system.objectmodel.4.3.0.nupkg.sha512",
     "C:\\Users\\cire3\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
     "C:\\Users\\cire3\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",

@@ -1,0 +1,9 @@
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Builder.WinForms\bin\Debug\Zork.Builder.WinForms.exe.config
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Builder.WinForms\bin\Debug\Zork.Builder.WinForms.exe
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Builder.WinForms\bin\Debug\Zork.Builder.WinForms.pdb
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Builder.WinForms\obj\Debug\Zork.Builder.WinForms.csproj.AssemblyReference.cache
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Builder.WinForms\obj\Debug\Zork.Builder.WinForms.Properties.Resources.resources
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Builder.WinForms\obj\Debug\Zork.Builder.WinForms.csproj.GenerateResource.cache
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Builder.WinForms\obj\Debug\Zork.Builder.WinForms.csproj.CoreCompileInputs.cache
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Builder.WinForms\obj\Debug\Zork.Builder.WinForms.exe
+C:\Users\cire3\Documents\GitHub\Zork\Zork.Builder.WinForms\obj\Debug\Zork.Builder.WinForms.pdb
