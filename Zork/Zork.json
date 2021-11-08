@@ -1,13 +1,15 @@
 {
   "World": {
+    "StartingLocation": "West of House",
     "Rooms": [
       {
         "Name": "West of House",
-        "Description": "This is an open field west of a white house, with a boarded front door.",
+        "Description": "This is an open field west of a white house, with a boarded front door",
         "Neighbors": {
           "North": "North of House",
           "South": "South of House",
           "West": "Forest 1"
+
         }
       },
       {
@@ -17,6 +19,7 @@
           "North": "Forest 2",
           "East": "Behind House",
           "West": "West of House"
+
         }
       },
       {
@@ -25,6 +28,7 @@
         "Neighbors": {
           "East": "Behind House",
           "West": "West of House"
+
         }
       },
       {
@@ -34,30 +38,36 @@
           "North": "North of House",
           "East": "Clearing",
           "South": "South of House"
+
         }
       },
       {
         "Name": "Forest 1",
+        "LookName": "Forest",
         "Description": "This is a forest, with trees in all directions around you.",
         "Neighbors": {
           "South": "Forest 3",
           "East": "West of House"
+
         }
       },
       {
         "Name": "Forest 2",
-        "Description": "This is a dimly lit forest, with large trees all around. One particularly large tree with some low branches stands here.",
+        //"LookName": "Forest",
+        "Description": "This is a dimly lit forest, with large trees all around you. One particularly large tree with some low branches stands here.",
         "Neighbors": {
           "South": "Clearing",
           "East": "Clearing"
+
         }
       },
       {
         "Name": "Forest 3",
-        "Description": "This is a dimly lit forest, with large trees all around. To the east, there appears to be sunlight.",
+        "Description": "This is a dimly lit forest, with large trees all around you. To the east, there appears to be sunlight",
         "Neighbors": {
           "North": "South of House",
           "East": "Clearing"
+
         }
       },
       {
@@ -66,11 +76,9 @@
         "Neighbors": {
           "West": "Forest 2",
           "South": "Forest 3"
+
         }
       }
     ]
-  },
-  "StartingLocation": "West of House",
-  "WelcomeMessage": "Welcome to Zork!",
-  "ExitMessage": "Thank you for playing!"
-}
+  }
+  }
