@@ -3,3 +3,5 @@ Zork/bin/
 Zork/obj/
 Backup/
 Zork/Zork.csproj.user
+*/obj/
+*/bin/
