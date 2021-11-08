@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "8WwSYdCkKXqwv5Z4tDXvu8/0Xs+dMQxy+shEUgiBGFC/zgATjHmVNE6q+RhnvLXpdxGikiS2yrMrdWmEBCIUiQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\cire3\\Desktop\\Zork_in_Unity\\Zork.Console\\Zork.Console.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\cire3\\.nuget\\packages\\fody\\6.3.0\\fody.6.3.0.nupkg.sha512",
+    "C:\\Users\\cire3\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\cire3\\.nuget\\packages\\propertychanged.fody\\3.2.10\\propertychanged.fody.3.2.10.nupkg.sha512"
+  ],
+  "logs": []
+}
