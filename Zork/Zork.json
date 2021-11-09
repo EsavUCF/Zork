@@ -43,6 +43,7 @@
       },
       {
         "Name": "Forest 1",
+        "LookName": "Forest",
         "Description": "This is a forest, with trees in all directions around you.",
         "Neighbors": {
           "South": "Forest 3",
@@ -52,6 +53,7 @@
       },
       {
         "Name": "Forest 2",
+        //"LookName": "Forest",
         "Description": "This is a dimly lit forest, with large trees all around you. One particularly large tree with some low branches stands here.",
         "Neighbors": {
           "South": "Clearing",

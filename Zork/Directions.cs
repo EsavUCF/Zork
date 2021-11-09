@@ -1,10 +1,13 @@
-﻿namespace Zork.Common
+﻿namespace Zork
 {
-    public enum Neighbors
+
+
+    public enum Directions //moved from player.cs
     {
         North,
         South,
         East,
         West
+
     }
 }
